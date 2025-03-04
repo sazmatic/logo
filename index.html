@@ -3,136 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <title>Teamsters Local 2024 Logo Contest</title>
-
-  <!-- React & ReactDOM from a CDN -->
-  <script
-    crossorigin
-    src="https://unpkg.com/react@18/umd/react.development.js"
-  ></script>
-  <script
-    crossorigin
-    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-  ></script>
-
-  <!-- Lucide Icons (for the upload icon) -->
-  <script
-    type="module"
-    src="https://unpkg.com/lucide-react@latest/dist/esm/lucide-react.js"
-  ></script>
-
-  <!-- Link your CSS file -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- A place for our React App -->
-  <div id="root"></div>
+  <div class="container">
+    <div class="card">
+      <h1 class="title">Teamsters Local 2024 Logo Contest</h1>
+      <p class="subtitle">
+        Submit your design to be the official face of Teamsters Local 2024.
+      </p>
+      <form action="thanks.html" method="POST" enctype="multipart/form-data" class="form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="name" required />
+        </div>
 
-  <!-- Your React App Code (inline script) -->
-  <script type="text/javascript">
-    // We’ll create a simple React component that renders the form
-    const { useState } = React;
-    const { createRoot } = ReactDOM;
-    const { UploadCloud } = window.lucideReact; // from lucide-react
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" required />
+        </div>
 
-    function App() {
-      const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        description: '',
-        file: null,
-      });
-      const [submitted, setSubmitted] = useState(false);
+        <div class="form-group">
+          <label>Design Description</label>
+          <textarea name="description" required></textarea>
+        </div>
 
-      const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
-      };
-
-      const handleFileChange = (event) => {
-        setFormData({ ...formData, file: event.target.files[0] });
-      };
-
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        setSubmitted(true);
-        console.log('Form Data:', formData);
-        // In a real scenario, you could connect this to an API or email backend.
-      };
-
-      return (
-        <div className="container">
-          <div className="card">
-            <h1 className="title">Teamsters Local 2024 Logo Contest</h1>
-            <p className="subtitle">
-              Submit your design to become the face of Teamsters Local 2024.
-            </p>
-
-            {submitted ? (
-              <div className="success-message">
-                <h2>Submission Received!</h2>
-                <p>Thank you for your entry. We will review it soon.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="form">
-                <div className="form-group">
-                  <label>Full Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Email Address</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Design Description</label>
-                  <textarea
-                    name="description"
-                    value={formData.description}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-group file-upload">
-                  <label>Upload Your Logo</label>
-                  <div className="upload-box">
-                    <input
-                      type="file"
-                      accept="image/png, image/jpeg, image/svg+xml"
-                      onChange={handleFileChange}
-                      required
-                      hidden
-                      id="file-upload"
-                    />
-                    <label htmlFor="file-upload" className="upload-label">
-                      <UploadCloud className="icon" /> Click to Upload
-                    </label>
-                  </div>
-                </div>
-                <button type="submit" className="submit-btn">
-                  Submit
-                </button>
-              </form>
-            )}
+        <div class="form-group file-upload">
+          <label>Upload Your Logo</label>
+          <div class="upload-box">
+            <input
+              type="file"
+              name="logo"
+              accept="image/png, image/jpeg, image/svg+xml"
+              required
+              id="file-upload"
+            />
           </div>
         </div>
-      );
-    }
 
-    // Render our App inside the #root div
-    const rootElement = document.getElementById('root');
-    const root = createRoot(rootElement);
-    root.render(<App />);
-  </script>
+        <button type="submit" class="submit-btn">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
