@@ -13,8 +13,9 @@
         Submit your design to be the official face of Teamsters Local 2024.
       </p>
 
-https://formspree.io/f/xyzkrqnw      <form
-        action="https://formspree.io/f/YOUR_ENDPOINT_URL"
+      <!-- Formspree integration: Replace YOUR_ENDPOINT with your actual endpoint -->
+      <form
+        action="https://formspree.io/f/xyzkrqnw"
         method="POST"
         enctype="multipart/form-data"
         class="form"
@@ -23,14 +24,17 @@ https://formspree.io/f/xyzkrqnw      <form
           <label>Full Name</label>
           <input type="text" name="name" required />
         </div>
+
         <div class="form-group">
           <label>Email Address</label>
           <input type="email" name="email" required />
         </div>
+
         <div class="form-group">
           <label>Design Description</label>
           <textarea name="description" required></textarea>
         </div>
+
         <div class="form-group file-upload">
           <label>Upload Your Logo</label>
           <div class="upload-box">
@@ -44,12 +48,10 @@ https://formspree.io/f/xyzkrqnw      <form
           </div>
         </div>
 
-        <!-- Optional: Hidden field for success redirect (Formspree calls it _next) -->
+        <!-- OPTIONAL: Redirect to a 'Thanks' page or external link after submission -->
         <!-- <input type="hidden" name="_next" value="https://YOURDOMAIN.com/thanks.html" /> -->
 
-        <button type="submit" class="submit-btn">
-          Submit
-        </button>
+        <button type="submit" class="submit-btn">Submit</button>
       </form>
     </div>
   </div>
