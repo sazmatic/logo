@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Teamsters Local 2024 Logo Contest</title>
 
-  <!-- Minimal styling (you can move this to a separate CSS file if desired) -->
+  <!-- Minimal inline styling; move to a separate CSS file if desired -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -97,7 +97,7 @@
       font-size: 1.3rem;
       font-weight: bold;
       margin-top: 1rem;
-      display: none; /* hidden by default */
+      display: none; /* Hidden by default, shown after success */
     }
     @media (max-width: 480px) {
       .card {
@@ -117,11 +117,9 @@
   <div class="container">
     <div class="card">
       <h1 class="title">Teamsters Local 2024 Logo Contest</h1>
-      <p class="subtitle">
-        Submit your design and help shape our identity.
-      </p>
+      <p class="subtitle">Submit your design and help shape our identity.</p>
 
-      <!-- Success message (shown upon successful email submission) -->
+      <!-- Success message after submission -->
       <div id="successMsg" class="success-message">
         Submission Received! We'll review it soon.
       </div>
@@ -180,67 +178,59 @@
   <!-- EmailJS library from CDN -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
   <script>
-    /*
-      If your account doesn't need emailjs.init(), you can skip it.
-      Otherwise, you'd do something like:
-      emailjs.init('YOUR_PUBLIC_KEY'); 
-    */
+    // Initialize EmailJS with your public key
+    emailjs.init("G6UARVpXSvRbmta7N");
 
-    // Update these constants
-    const SERVICE_ID = 'service_pz1we05';          // Provided
-    const TEMPLATE_ID = '__ejs-test-mail-service__'; // Provided as the Template ID
-    // If no public key is required, we omit the 4th parameter in emailjs.send()
+    // Provided constants
+    const SERVICE_ID = "service_pz1we05";
+    const TEMPLATE_ID = "__ejs-test-mail-service__";
 
-    // Grab form & success message
-    const logoForm = document.getElementById('logoForm');
-    const successMsg = document.getElementById('successMsg');
+    const logoForm = document.getElementById("logoForm");
+    const successMsg = document.getElementById("successMsg");
 
-    logoForm.addEventListener('submit', async (event) => {
+    logoForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      // Collect form data
       const formData = new FormData(logoForm);
-      const file = formData.get('logo');
+      const file = formData.get("logo");
 
       // Convert file to base64
       const base64 = await fileToBase64(file);
 
-      // Build params for EmailJS
-      // Make sure your EmailJS template has placeholders for these keys:
-      // e.g. {{from_name}}, {{reply_to}}, {{description}}, plus an attachment
+      // EmailJS parameters; must match placeholders in your template
       const emailParams = {
-        from_name: formData.get('name'),
-        reply_to: formData.get('email'),
-        description: formData.get('description'),
-        attachment: base64,            // base64 file content
-        attachment_filename: file.name // original filename
+        from_name: formData.get("name"),
+        reply_to: formData.get("email"),
+        description: formData.get("description"),
+        attachment: base64,             // base64 content
+        attachment_filename: file.name  // original filename
       };
 
       try {
-        // Send email without a public key (4th arg) if your account doesn't require it
+        // Send email. The 4th arg is optional if we've already done init().
         const response = await emailjs.send(
           SERVICE_ID,
           TEMPLATE_ID,
           emailParams
         );
-        console.log('Email sent!', response.status, response.text);
+        console.log("Email sent:", response.status, response.text);
 
-        // Show success message & reset form
-        successMsg.style.display = 'block';
+        // Show success message & reset
+        successMsg.style.display = "block";
         logoForm.reset();
       } catch (error) {
-        console.error('Failed...', error);
-        alert('Sorry, something went wrong. Please try again later.');
+        console.error("Failed to send email:", error);
+        alert("Sorry, something went wrong. Please try again later.");
       }
     });
 
-    // Helper: Convert file -> base64 string
+    // Helper: file -> base64
     function fileToBase64(file) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = () => {
-          // remove 'data:xxx;base64,' prefix
-          const result = reader.result.split(',')[1];
+          // strip off the 'data:xxx;base64,' prefix
+          const result = reader.result.split(",")[1];
           resolve(result);
         };
         reader.onerror = (err) => reject(err);
