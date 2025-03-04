@@ -2,58 +2,251 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <!-- Make it responsive on mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Teamsters Local 2024 Logo Contest</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Minimal styling (you can move this to a separate CSS file if desired) -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #f7f8fa, #e9ecef);
+      margin: 0;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+    }
+    .card {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+    .title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      outline: none;
+    }
+    input:focus,
+    textarea:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .upload-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      border: 2px dashed #007bff;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .submit-btn {
+      width: 100%;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.9rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+    .success-message {
+      color: #28a745;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      display: none; /* hidden by default */
+    }
+    @media (max-width: 480px) {
+      .card {
+        padding: 1.5rem;
+      }
+      .title {
+        font-size: 1.5rem;
+      }
+      .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <div class="card">
       <h1 class="title">Teamsters Local 2024 Logo Contest</h1>
       <p class="subtitle">
-        Submit your design to be the official face of Teamsters Local 2024.
+        Submit your design and help shape our identity.
       </p>
 
-      <!-- Formspree integration: Replace YOUR_ENDPOINT with your actual endpoint -->
-      <form
-        action="https://formspree.io/f/xyzkrqnw"
-        method="POST"
-        enctype="multipart/form-data"
-        class="form"
-      >
+      <!-- Success message (shown upon successful email submission) -->
+      <div id="successMsg" class="success-message">
+        Submission Received! We'll review it soon.
+      </div>
+
+      <form id="logoForm" style="margin-top: 1rem;">
         <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" name="name" required />
+          <label for="fullname">Full Name</label>
+          <input
+            type="text"
+            id="fullname"
+            name="name"
+            placeholder="e.g. Jane Doe"
+            required
+          />
         </div>
 
         <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" name="email" required />
+          <label for="emailaddress">Email Address</label>
+          <input
+            type="email"
+            id="emailaddress"
+            name="email"
+            placeholder="name@example.com"
+            required
+          />
         </div>
 
         <div class="form-group">
-          <label>Design Description</label>
-          <textarea name="description" required></textarea>
+          <label for="description">Design Description</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Briefly describe your design..."
+            required
+          ></textarea>
         </div>
 
-        <div class="form-group file-upload">
-          <label>Upload Your Logo</label>
+        <div class="form-group">
+          <label for="file-upload">Upload Your Logo</label>
           <div class="upload-box">
             <input
               type="file"
+              id="file-upload"
               name="logo"
               accept="image/png, image/jpeg, image/svg+xml"
               required
-              id="file-upload"
             />
           </div>
         </div>
-
-        <!-- OPTIONAL: Redirect to a 'Thanks' page or external link after submission -->
-        <!-- <input type="hidden" name="_next" value="https://YOURDOMAIN.com/thanks.html" /> -->
 
         <button type="submit" class="submit-btn">Submit</button>
       </form>
     </div>
   </div>
+
+  <!-- EmailJS library from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script>
+    /*
+      If your account doesn't need emailjs.init(), you can skip it.
+      Otherwise, you'd do something like:
+      emailjs.init('YOUR_PUBLIC_KEY'); 
+    */
+
+    // Update these constants
+    const SERVICE_ID = 'service_pz1we05';          // Provided
+    const TEMPLATE_ID = '__ejs-test-mail-service__'; // Provided as the Template ID
+    // If no public key is required, we omit the 4th parameter in emailjs.send()
+
+    // Grab form & success message
+    const logoForm = document.getElementById('logoForm');
+    const successMsg = document.getElementById('successMsg');
+
+    logoForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // Collect form data
+      const formData = new FormData(logoForm);
+      const file = formData.get('logo');
+
+      // Convert file to base64
+      const base64 = await fileToBase64(file);
+
+      // Build params for EmailJS
+      // Make sure your EmailJS template has placeholders for these keys:
+      // e.g. {{from_name}}, {{reply_to}}, {{description}}, plus an attachment
+      const emailParams = {
+        from_name: formData.get('name'),
+        reply_to: formData.get('email'),
+        description: formData.get('description'),
+        attachment: base64,            // base64 file content
+        attachment_filename: file.name // original filename
+      };
+
+      try {
+        // Send email without a public key (4th arg) if your account doesn't require it
+        const response = await emailjs.send(
+          SERVICE_ID,
+          TEMPLATE_ID,
+          emailParams
+        );
+        console.log('Email sent!', response.status, response.text);
+
+        // Show success message & reset form
+        successMsg.style.display = 'block';
+        logoForm.reset();
+      } catch (error) {
+        console.error('Failed...', error);
+        alert('Sorry, something went wrong. Please try again later.');
+      }
+    });
+
+    // Helper: Convert file -> base64 string
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          // remove 'data:xxx;base64,' prefix
+          const result = reader.result.split(',')[1];
+          resolve(result);
+        };
+        reader.onerror = (err) => reject(err);
+        reader.readAsDataURL(file);
+      });
+    }
+  </script>
 </body>
 </html>
