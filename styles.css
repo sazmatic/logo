@@ -25,8 +25,9 @@ body {
   width: 100%;
   max-width: 640px;
   animation: fadeIn 0.8s ease forwards;
-  opacity: 0; /* start hidden, fade in */
+  opacity: 0;
 }
+
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -44,38 +45,53 @@ body {
   text-align: center;
   transition: box-shadow 0.3s ease;
 }
+
 .card:hover {
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
 }
 
 /*
- * TITLE STYLING
+ * PERFECTLY CENTERED TITLE
  */
-.title {
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
 }
+
+.title {
+  text-align: center;
+  line-height: 1.1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .teamsters {
+  font-size: 2.5rem;
   color: #004aad;
 }
+
 .local-2024 {
+  font-size: 2.5rem;
   color: #ff914d;
 }
+
+/*
+ * LOGO CONTEST SUBTITLE - SMALLER BUT STRONG
+ */
 .logo-contest {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: #333;
-  margin-bottom: 1.2rem;
+  color: #222;
+  margin-top: 0.3rem;
 }
 
 /*
  * TEXT & CONTEST DETAILS
  */
 .subtitle {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #666;
   margin-bottom: 1.8rem;
   font-weight: 500;
@@ -111,6 +127,7 @@ body {
   box-shadow: 0 6px 16px rgba(0, 74, 173, 0.3);
   cursor: pointer;
 }
+
 .email-btn:hover {
   background: linear-gradient(to right, #003b82, #e67934);
   transform: translateY(-2px);
@@ -124,15 +141,14 @@ body {
   .card {
     padding: 2rem;
   }
-  .title {
-    font-size: 1.8rem;
-    letter-spacing: 0.5px;
+  .teamsters, .local-2024 {
+    font-size: 2.2rem;
   }
   .logo-contest {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
   .subtitle {
-    font-size: 0.95rem;
+    font-size: 1rem;
     margin-bottom: 1.4rem;
   }
   .contest-details ul {
