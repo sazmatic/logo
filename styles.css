@@ -48,17 +48,14 @@ body {
 .contest-details {
   text-align: left;
   margin-bottom: 2rem;
-}
-.contest-details p {
-  margin-bottom: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 .contest-details ul {
-  margin-bottom: 1.5rem;
-  padding-left: 1.2rem;
+  margin: 1rem 0 1.5rem 1.2rem;
 }
 .contest-details li {
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 /* Button */
@@ -79,7 +76,7 @@ body {
   background-color: #0056b3;
 }
 
-/* Media Queries (Mobile) */
+/* Mobile Queries */
 @media (max-width: 480px) {
   .card {
     padding: 1.5rem;
