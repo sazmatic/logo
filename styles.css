@@ -78,29 +78,25 @@ body {
 }
 
 /*
- * LOGO CONTEST - POPS BUT DOESN’T OVERSHADOW
+ * LOGO CONTEST - Clean and Noticeable, No Background Box
  */
 .logo-contest {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: white;
-  background: #ff914d;
-  display: inline-block;
-  padding: 0.5rem 1.5rem;
-  border-radius: 8px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #004aad;
   text-transform: uppercase;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 }
 
 /*
- * SUBTITLE - SMALLER & PERFECTLY CENTERED
+ * SUBTITLE - Fully Centered and More Subtle
  */
 .subtitle {
   font-size: 1rem;
-  color: #555;
+  color: #666;
   text-align: center;
   font-weight: 400;
-  margin-top: 0.8rem;
+  margin-top: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -129,14 +125,14 @@ body {
 }
 
 /*
- * DISCLAIMER - SMALLER & LESS SPACE
+ * DISCLAIMER - Even Smaller and Takes Up Less Space
  */
 .disclaimer {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #666;
   text-align: center;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
   border-top: 1px solid #ddd;
   max-width: 85%;
   margin-left: auto;
