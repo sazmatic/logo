@@ -1,5 +1,134 @@
 /*
- * DISCLAIMER STYLING - CLEAR, PROFESSIONAL, EASY TO READ
+ * GLOBAL RESETS & STYLES
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to bottom right, #fafbfc, #e2e6ea);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+/* 
+ * CONTAINER & FADE ANIMATION 
+ */
+.container {
+  width: 100%;
+  max-width: 640px;
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * CARD STYLE
+ */
+.card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+/*
+ * PERFECTLY CENTERED TITLE
+ */
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  text-align: center;
+  line-height: 1.1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.teamsters {
+  font-size: 2.5rem;
+  color: #004aad;
+}
+
+.local-2024 {
+  font-size: 2.5rem;
+  color: #ff914d;
+}
+
+/*
+ * LOGO CONTEST - MAKES IT POP WITHOUT OVERPOWERING
+ */
+.logo-contest {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff914d;
+  background: #004aad;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+/*
+ * SUBTITLE - FULLY CENTERED & MORE BALANCED
+ */
+.subtitle {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/*
+ * BUTTON STYLING
+ */
+.email-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #004aad, #ff914d);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0, 74, 173, 0.3);
+  cursor: pointer;
+}
+
+.email-btn:hover {
+  background: linear-gradient(to right, #003b82, #e67934);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 74, 173, 0.3);
+}
+
+/*
+ * DISCLAIMER
  */
 .disclaimer {
   font-size: 0.9rem;
