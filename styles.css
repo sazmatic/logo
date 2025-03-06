@@ -78,14 +78,15 @@ body {
 }
 
 /*
- * LOGO CONTEST - Clean and Noticeable, No Background Box
+ * LOGO CONTEST - Pops with Stars for Attention
  */
 .logo-contest {
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #004aad;
   text-transform: uppercase;
   margin-top: 0.5rem;
+  letter-spacing: 1px;
 }
 
 /*
@@ -98,6 +99,13 @@ body {
   font-weight: 400;
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+}
+
+/*
+ * BUTTON CONTAINER - Isolates the Button from Other Text
+ */
+.button-container {
+  margin-top: 2rem;
 }
 
 /*
@@ -125,14 +133,14 @@ body {
 }
 
 /*
- * DISCLAIMER - Even Smaller and Takes Up Less Space
+ * DISCLAIMER - Smaller and More Compact
  */
 .disclaimer {
   font-size: 0.75rem;
   color: #666;
   text-align: center;
-  margin-top: 1rem;
-  padding-top: 0.8rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid #ddd;
   max-width: 85%;
   margin-left: auto;
