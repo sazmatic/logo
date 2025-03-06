@@ -90,7 +90,7 @@ body {
 }
 
 /*
- * SUBTITLE - Fully Centered & Improved Readability
+ * SUBTITLE - Now on Two Lines, Fully Centered
  */
 .subtitle {
   font-size: 1rem;
@@ -99,6 +99,7 @@ body {
   font-weight: 400;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
+  line-height: 1.5;
 }
 
 /*
@@ -107,15 +108,29 @@ body {
 .contest-details p {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 1.2rem;
+  margin: 0 auto 1.5rem;
   line-height: 1.6;
+}
+
+/*
+ * "READY TO SUBMIT?" SECTION - SEPARATED
+ */
+.submission-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.submission-section p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
 }
 
 /*
  * BUTTON CONTAINER - Isolates the Button from Other Text
  */
 .button-container {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 /*
