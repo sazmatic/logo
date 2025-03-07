@@ -1,91 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teamsters Local 2024 - Logo Contest</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container fade-in">
-    <div class="card">
-      <div class="title-container">
-        <h1 class="title">
-          <span class="teamsters">TEAMSTERS</span> 
-          <span class="local-2024">LOCAL 2024</span>
-        </h1>
-        <h2 class="logo-contest">★ Logo Contest ★</h2>
-      </div>
+/*
+ * GLOBAL RESETS & STYLES
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-      <p class="subtitle">Your design. Our future.<br>Be a part of our history.</p>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to bottom right, #fafbfc, #e2e6ea);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
 
-      <div class="contest-details">
-        <p>
-          Calling all <strong>Teamsters of Local 2024</strong>! We need a bold, inspiring logo that reflects our 
-          union’s dedication to better healthcare, member support, and professional excellence.
-        </p>
-        <p>
-          Submit your design and be a part of shaping the future of our local! 
-          This is your chance to create a meaningful symbol that represents our strength, unity, and commitment 
-          to all nursing professionals.
-        </p>
+/* 
+ * CONTAINER & FADE ANIMATION 
+ */
+.container {
+  width: 100%;
+  max-width: 680px;
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
 
-        <!-- Official Logo History Section -->
-        <div class="logo-history">
-          <h3>🔹 The History of Our Official Logo</h3>
-          <p>
-            The official Teamsters logo features two horses' heads, symbolizing the union's origins in the era of horse-drawn transport. These horses, named <strong>Thunder</strong> and <strong>Lightning</strong>, represent the complementary forces of strength inherent in our union. Thunder is male, and Lightning is female, together embodying the pillars of our organization: unity and power, dignity and justice. 
-          </p>
-        </div>
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
-        <!-- Contest Information -->
-        <div class="contest-info">
-          <div class="info-box">
-            <h3>🗓 Deadline</h3>
-            <p>March 31, 2025, 11:59 PM</p>
-          </div>
-          <div class="info-box">
-            <h3>👥 Eligibility</h3>
-            <p>All members of Teamsters Local 2024</p>
-          </div>
-          <div class="info-box">
-            <h3>🎨 Requirements</h3>
-            <p>Incorporate both healthcare & Teamsters elements</p>
-            <p><strong>Must include:</strong> Thunder & Lightning (⚡🐴🐴)</p>
-          </div>
-        </div>
+/*
+ * CARD STYLE
+ */
+.card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
 
-        <!-- Separated "Ready to Submit?" Section -->
-        <div class="submission-section">
-          <p><strong>Ready to submit?</strong></p>
-          <p>Send us your design along with the requested details. We look forward to seeing your creative ideas!</p>
-        </div>
-      </div>
+.card:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
 
-      <!-- Isolated Email Button -->
-      <div class="button-container">
-        <a class="email-btn" href="mailto:NFN@jc43.org
-            ?subject=Teamsters%20Local%202024%20Logo%20Contest%20Submission
-            &body=Full%20Name:%0D%0ASite%20Location:%0D%0ALogo%20Description:%0D%0AWould%20you%20like%20to%20remain%20anonymous%20if%20your%20design%20is%20selected%20as%20the%20winner?%20(Yes/No)">
-          Submit Logo
-        </a>
-      </div>
+/*
+ * TITLE STYLING
+ */
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
 
-      <!-- Disclaimer Section -->
-      <div class="disclaimer">
-        <p>
-          All contestants will remain anonymous throughout the contest. 
-          The winning logo design will be selected strictly based on the majority of votes. 
-          The winner’s name will only be announced during the official presentation of Local 2024’s new logo, 
-          unless they choose to remain anonymous.
-        </p>
-        <p>
-          The selected logo design will be used on merchandise, promotional materials, 
-          and official union branding. By submitting a design, you confirm that it is copyright-free and 
-          you grant Teamsters Local 2024 full rights to use, modify, and distribute the design as needed.
-        </p>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+.title {
+  text-align: center;
+  line-height: 1.1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.teamsters {
+  font-size: 2.5rem;
+  color: #004aad;
+}
+
+.local-2024 {
+  font-size: 2.5rem;
+  color: #ff914d;
+}
+
+/*
+ * LOGO HISTORY SECTION - Highlighting Thunder & Lightning
+ */
+.logo-history {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #f4f4f4;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-history h3 {
+  color: #004aad;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.logo-history p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/*
+ * REQUIREMENTS BOX - Highlight Thunder & Lightning
+ */
+.info-box p strong {
+  color: #d9534f;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Adding emphasis to Thunder & Lightning */
+.lightning-thunder {
+  color: #ff914d;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/*
+ * DISCLAIMER - Smaller & Better Spaced
+ */
+.disclaimer {
+  font-size: 0.75rem;
+  color: #666;
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disclaimer p {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
