@@ -1,105 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teamsters Local 2024 - Logo Contest</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container fade-in">
-    <div class="card">
-      <div class="title-container">
-        <h1 class="title">
-          <span class="teamsters">TEAMSTERS</span> 
-          <span class="local-2024">LOCAL 2024</span>
-        </h1>
-        <h2 class="logo-contest">★ Logo Contest ★</h2>
-      </div>
+/*
+ * GLOBAL RESETS & STYLES
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-      <p class="subtitle">Your design. Our future.<br>Be a part of our history.</p>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to bottom right, #fafbfc, #e2e6ea);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  text-align: center;
+}
 
-      <div class="contest-details">
-        <p>
-          Calling all <strong>Teamsters of Local 2024</strong>! We need a bold, inspiring logo that reflects our 
-          union’s dedication to better healthcare, member support, and professional excellence.
-        </p>
-        <p>
-          Submit your design and be a part of shaping the future of our local! 
-          This is your chance to create a meaningful symbol that represents our strength, unity, and commitment 
-          to all nursing professionals.
-        </p>
+/* 
+ * CARD STYLE - CLEAN & PROFESSIONAL
+ */
+.card {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 700px;
+}
 
-        <!-- Official Logo History Section -->
-        <div class="logo-history">
-          <h3>🔹 The Legacy of Thunder & Lightning</h3>
-          <p>
-            The Teamsters emblem prominently features two horses, <strong class="highlight">Thunder & Lightning</strong>, 
-            paying homage to the union’s origins in the era of horse-drawn transport. These horses symbolize 
-            the values that have guided the Teamsters for over a century: strength, unity, and resilience.
-          </p>
-          <p>
-            <strong>Thunder</strong> represents unwavering power and determination, reflecting the solidarity of 
-            the union’s members. <strong>Lightning</strong> embodies agility and adaptability, signifying the ability 
-            to evolve while staying true to the principles of fairness and justice. Together, they reinforce the 
-            core values that have made the Teamsters a pillar of strength in labor representation.
-          </p>
-          <p>
-            As we look to the future, the inclusion of <strong class="highlight">Thunder & Lightning</strong> in our new logo 
-            design ensures that this legacy remains at the heart of our identity, inspiring current and future generations 
-            of Teamsters.
-          </p>
-        </div>
+/*
+ * TITLE STYLES
+ */
+.title {
+  text-align: center;
+  font-weight: 900;
+  text-transform: uppercase;
+}
 
-        <!-- Contest Information -->
-        <div class="contest-info">
-          <div class="info-box">
-            <h3>🗓 Deadline</h3>
-            <p>March 31, 2025, 11:59 PM</p>
-          </div>
-          <div class="info-box">
-            <h3>👥 Eligibility</h3>
-            <p>All members of Teamsters Local 2024</p>
-          </div>
-          <div class="info-box">
-            <h3>🎨 Requirements</h3>
-            <p>Incorporate both <strong>healthcare</strong> & <strong>Teamsters</strong> elements</p>
-            <p><strong>Must include:</strong> <strong class="highlight">Thunder & Lightning ⚡🐴🐴</strong></p>
-          </div>
-        </div>
+.teamsters {
+  font-size: 2.5rem;
+  color: #004aad;
+}
 
-        <!-- Submission Section -->
-        <div class="submission-section">
-          <p><strong>Ready to submit?</strong></p>
-          <p>Send us your design along with the requested details. We look forward to seeing your creative ideas!</p>
-        </div>
+.local-2024 {
+  font-size: 2.5rem;
+  color: #ff914d;
+}
 
-      </div>
+/*
+ * LOGO HISTORY SECTION - Professional Look
+ */
+.logo-history {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f4f4f4;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-      <!-- Email Submission Button -->
-      <div class="button-container">
-        <a class="email-btn" href="mailto:NFN@jc43.org
-            ?subject=Teamsters%20Local%202024%20Logo%20Contest%20Submission
-            &body=Full%20Name:%0D%0ASite%20Location:%0D%0ALogo%20Description:%0D%0AWould%20you%20like%20to%20remain%20anonymous%20if%20your%20design%20is%20selected%20as%20the%20winner?%20(Yes/No)">
-          Submit Logo
-        </a>
-      </div>
+.history-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #004aad;
+  margin-bottom: 0.75rem;
+}
 
-      <!-- Disclaimer Section -->
-      <div class="disclaimer">
-        <p>
-          All contestants will remain anonymous throughout the contest. 
-          The winning logo design will be selected strictly based on the majority of votes. 
-          The winner’s name will only be announced during the official presentation of Local 2024’s new logo, 
-          unless they choose to remain anonymous.
-        </p>
-        <p>
-          The selected logo design will be used on merchandise, promotional materials, 
-          and official union branding. By submitting a design, you confirm that it is copyright-free and 
-          you grant Teamsters Local 2024 full rights to use, modify, and distribute the design as needed.
-        </p>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+/* Highlight Important Text */
+.highlight {
+  color: #ff914d;
+  font-weight: bold;
+}
+
+/* BUTTON */
+.button-container {
+  margin-top: 2rem;
+}
+
+.email-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #004aad, #ff914d);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.email-btn:hover {
+  background: linear-gradient(to right, #003b82, #e67934);
+  transform: translateY(-2px);
+}
+
+/* 
+ * MOBILE FRIENDLINESS 
+ */
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 95%;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .teamsters, .local-2024 {
+    font-size: 2rem;
+  }
+
+  .email-btn {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .logo-history, .info-box {
+    max-width: 95%;
+    padding: 1rem;
+  }
+}
